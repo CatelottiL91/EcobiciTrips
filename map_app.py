@@ -5,20 +5,9 @@ import pydeck as pdk
 # Use st.cache_data instead of st.cache
 @st.cache_data
 def load_and_process_data():
-    # Load the full dataset
-    df_raw = pd.read_csv("Bicicletas_acumulado_procesado.txt", encoding="Latin-1", sep="\t", parse_dates=["Fecha_Inicio"])
-
-    # Convert to datetime and filter for 2025
-    df_raw["Fecha_Inicio"] = pd.to_datetime(df_raw["Fecha_Inicio"])
-    df_2025 = df_raw[df_raw["Fecha_Inicio"].dt.year == 2025]
-
-    # Extract the hour of the trip
-    df_2025["Hour"] = df_2025["Fecha_Inicio"].dt.hour
-
-    # Group by hour and calculate the count of trips for each hour
-    avg_trips_by_hour = df_2025.groupby(["Nombre_Inicio_Viaje", "LAT_Inicio_Viaje", "LON_Inicio_Viaje", "Hour"]).size().reset_index(name="Average_Trips")
-    
-    return avg_trips_by_hour
+    # Load pre-aggregated data
+    df = pd.read_csv("avg_trips_by_hour.csv")
+    return df
 
 # Load data (using cache to speed up subsequent loads)
 df = load_and_process_data()
