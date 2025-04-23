@@ -1,16 +1,12 @@
 [theme]
-primaryColor = "#0198bd"
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#f0f2f6"
-textColor = "#262730"
-font = "sans serif"
+base="dark"
 
 [server]
 headless = true
-enableCORS = false
 
 [client]
-showSidebarNavigation = false
+toolbarMode = "minimal"
 
 [layout]
-wideMode = true
+wide = true
+
