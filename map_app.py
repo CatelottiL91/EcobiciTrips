@@ -2,6 +2,21 @@ import pandas as pd
 import streamlit as st
 import pydeck as pdk
 
+st.set_page_config(layout="wide")
+
+st.markdown(
+    """
+    <style>
+    .main {
+        max-width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Use st.cache_data instead of st.cache
 @st.cache_data
 def load_and_process_data():
@@ -77,5 +92,4 @@ deck = pdk.Deck(
 )
 
 # Display the map with Streamlit and custom height and width
-st.pydeck_chart(deck, use_container_width=True)
-
+st.pydeck_chart(deck, use_container_width=True, height=670)
