@@ -63,8 +63,8 @@ layer = pdk.Layer(
 
 # Define the initial view state (centered around Buenos Aires)
 view_state = pdk.ViewState(
-    latitude=-34.61,
-    longitude=-58.41,
+    latitude=-34.6148,
+    longitude=-58.4387,
     zoom=11,  # Zoom in to reduce rendered points
     pitch=45,  # 3D angle for visual effect
 )
@@ -78,3 +78,4 @@ deck = pdk.Deck(
 
 # Display the map with Streamlit and custom height and width
 st.pydeck_chart(deck, use_container_width=True)
+
